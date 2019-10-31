@@ -1,0 +1,25 @@
+body{
+    max-width: 1680px;
+    margin: 0 auto;
+}
+.header{
+    text-align: center;
+}
+h1{
+    font-size: 24px;
+}
+.inputoutput {
+    width:32%;
+    display: inline-block;
+    background: #cccccc36;
+    min-height: 300px;
+    vertical-align: top;
+    text-align: center;
+    margin: 0.5%;
+    padding-top: 30px;
+}
+.inputoutput img,
+.inputoutput canvas{
+    block-size:250px;
+    object-position:50% 50%;
+}
