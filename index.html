@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Histograms in OpenCV.js</title>
+    <title>Histograms and Images Normalization</title>
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -12,32 +12,133 @@
     </div>
     <div class="content">
         <div>
-            <div class="inputoutput">
-                <img id="canvasInput" alt="" />
+            <div class="inputoutput image-upload">
+                <div class="cell">
+                    <img id="canvasInput" alt="" />
+                </div>
                 <div class="caption">
-                    <input type="file" id="fileInput" name="file" />
+                    <input type="file" id="fileInput" name="file" onchange="document.getElementById('created-images').classList.add('show');"/>
                 </div>
             </div>
-            <div class="inputoutput">
-                <canvas id="canvashistogram" ></canvas>
-                <div class="caption">canvas Histogram</div>
-            </div>
-            <div class="inputoutput">
-                <canvas id="canvasOutput" ></canvas>
-                <div class="caption">OpenCV Histogram</div>
-            </div>
-            <div class="inputoutput">
-                <canvas id="canvasOutputGrey" ></canvas>
-                <div class="caption">Grey Image</div>
-            </div>
-            <div class="inputoutput">
-                <canvas id="canvasOutputEqualize" ></canvas>
-                <div class="caption">Equalize Histogram</div>
-            </div>
-            <div class="inputoutput">
-                <canvas id="canvasOutputEqualize2" ></canvas>
-                <div class="caption">Equalize Histogram - Image CLAHE </div>
-            </div>
+            <div id="created-images">                
+                <div class="row">
+                    <div class="inputoutput cn">
+                        <div class="cell">
+                            <canvas id="canvasCustomHistogram"></canvas>
+                        </div>
+                        <div class="caption">Histogram with canvas</div>
+                    </div>
+                    <div class="inputoutput cv">
+                        <div class="cell">
+                            <canvas id="canvasOutput"></canvas>
+                        </div>
+                        <div class="caption">Histogram with OpenCV</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="inputoutput  cn">
+                        <div class="cell">
+                            <canvas id="canvasCustomRed"></canvas>
+                        </div>
+                        <div class="caption">Canvas Red chanel</div>
+                    </div>
+                    <div class="inputoutput cn">
+                        <div class="cell">
+                            <canvas id="canvasCustomGreen"></canvas>
+                        </div>
+                        <div class="caption">Canvas Green chanel</div>
+                    </div>
+                    <div class="inputoutput cn">
+                        <div class="cell">
+                            <canvas id="canvasCustomBlue"></canvas>
+                        </div>
+                        <div class="caption">Canvas Blue chanel</div>
+                    </div>
+                </div>            
+               
+                <div class="row">
+                    <div class="inputoutput cn">
+                        <div class="cell">
+                            <canvas id="canvasCustomRGBHistogram"></canvas>
+                        </div>
+                        <div class="caption">Canvas RGB Histogram</div>
+                    </div>
+                    <div class="inputoutput cn">
+                        <div class="cell">
+                            <canvas id="canvasCustomNormalizeHistogram"></canvas>
+                        </div>
+                        <div class="caption">Canvas Normalize Histogram</div>
+                    </div>
+                    <div class="inputoutput cn">
+                        <div class="cell">
+                            <canvas id="canvasCustomEqualizeHistogram"></canvas>
+                        </div>
+                        <div class="caption">Canvas Equalize Histogram</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="inputoutput cn">
+                        <div class="cell">
+                            <canvas id="canvasCustomGray"></canvas>
+                        </div>
+                        <div class="caption">Canvas Gray</div>
+                    </div>                          
+                    <div class="inputoutput cv">
+                        <div class="cell">
+                            <canvas id="canvasOutputGray"></canvas>
+                        </div>
+                        <div class="caption">OpenCV Gray Image</div>
+                    </div>
+                </div>
+                <div class="row" style="display:none;">
+                    <div class="inputoutput cn">
+                        <div class="cell">
+                            <canvas id="canvasCustomGray"></canvas>
+                        </div>
+                        <div class="caption">Canvas Gray</div>
+                    </div>                          
+                    <div class="inputoutput cv">
+                        <div class="cell">
+                            <canvas id="canvasOutputGray"></canvas>
+                        </div>
+                        <div class="caption">OpenCV Gray Image</div>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="inputoutput  cn">
+                        <div class="cell">
+                            <canvas id="canvasCustomNormalize"></canvas>
+                        </div>
+                        <div class="caption">Canvas Normalize</div>
+                    </div>
+                    <div class="inputoutput cv">
+                        <div class="cell">
+                            <canvas id="canvasOutputNormalize"></canvas>
+                        </div>
+                        <div class="caption">OpenCV Normalize</div>
+                    </div>
+                </div>             
+                <div class="row">
+                    <div class="inputoutput cn">
+                        <div class="cell">
+                            <canvas id="canvasCustomEqualize"></canvas>
+                        </div>
+                        <div class="caption">Canvas Equalize</div>
+                    </div>
+                    <div class="inputoutput cv">
+                        <div class="cell">
+                            <canvas id="canvasOutputEqualize"></canvas>
+                        </div>
+                        <div class="caption">OpenCV Equalize</div>
+                    </div>
+                    <div class="inputoutput cv" style="display:none;">
+                        <div class="cell">
+                            <canvas id="canvasOutputEqualize2"></canvas>
+                        </div>
+                        <div class="caption">OpenCV Equalize CLAHE</div>
+                    </div>              
+                </div>                  
+            </div>    
         </div>        
     </div>
     <script async src="opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>

@@ -1,25 +1,52 @@
-body{
+body {
     max-width: 1680px;
     margin: 0 auto;
 }
-.header{
+
+.header {
     text-align: center;
 }
-h1{
+
+h1 {
     font-size: 24px;
 }
+
 .inputoutput {
-    width:32%;
+    width: 32%;
     display: inline-block;
     background: #cccccc36;
-    min-height: 300px;
-    vertical-align: top;
     text-align: center;
     margin: 0.5%;
-    padding-top: 30px;
+    padding: 30px 15px;
+    box-sizing: border-box;
 }
+
+.inputoutput .cell {
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+}
+
 .inputoutput img,
-.inputoutput canvas{
-    block-size:250px;
-    object-position:50% 50%;
+.inputoutput canvas {
+    width: 100%;
 }
+.inputoutput.image-upload {
+    display: block;
+    margin: 20px auto;
+}
+
+#created-images{
+    display:none;
+    text-align: center;
+}
+#created-images.show{
+    display: block;
+}
+.inputoutput.cn {
+    background: #e6f1fd;
+}
+.inputoutput.cv {
+    background: #ddf8f8;
+}
+/* Commit new */
