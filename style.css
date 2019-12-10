@@ -49,4 +49,7 @@ h1 {
 .inputoutput.cv {
     background: #ddf8f8;
 }
-/* Commit new */
+.caption {
+    margin: 25px auto 5px;
+    font-size: 18px;
+}
